@@ -1,7 +1,7 @@
 import User from '../models/userModel.js';
 
 exports.getHome = (req, res) => {
-
+    res.send("this should be the home");
 };
 
 exports.getUser = (req, res) => {
@@ -15,7 +15,7 @@ exports.getUser = (req, res) => {
 };
 
 exports.getAllUsers = (req, res) => {
-    res.send("Boo");
+    res.send("Trying to get all users");
     // User.find({}, (err, users) => {
     //     var userMap = {};
     //
