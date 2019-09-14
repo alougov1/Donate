@@ -1,19 +1,15 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
+const express = require('express');
+const mongoose = require('mongoose');
 
-var users = require('./routes/users')
-var home = require('./routes/home')
+const app = express();
 
-// var wiki = require('./wiki.js');
-// // ...
-
-var app = express()
-
-var mongoDB = "mongodb://localhost"
-
-// mongoose.connect(mongoDB, { useNewUrlParser: true });
-mongoose.connect('mongodb://localhost');
+mongoose.connect('mongodb://localhost')
+    .then(() => {
+        console.log("Successfully connected to the database")
+    }).catch(err => {
+        console.log('Could not connect to the database. Exiting now...', err);
+        process.exit();
+    });
 
 //Get the default connection
 var db = mongoose.connection;
@@ -21,15 +17,6 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-
-/**
-    * Register the routes
-    */
-
-// routes(app);
-
-// app.use('/wiki', wiki);
-app.use('/users', users);
-app.use('/', home);
+require('./routes/routes.js')(app);
 
 export default app;

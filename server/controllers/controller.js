@@ -1,5 +1,8 @@
-import mongoose from 'mongoose';
 import User from '../models/userModel.js';
+
+exports.getHome = (req, res) => {
+
+};
 
 exports.getUser = (req, res) => {
     User.findById(req.params.id, (err, note) => {
