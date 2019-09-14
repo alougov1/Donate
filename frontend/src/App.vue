@@ -1,18 +1,20 @@
 <template>
   <div class="App">
-      <Map>
-          name="example"
-      </Map>
+      <Home/>
   </div>
 </template>
 
 <script>
-    import Map from './components/Map';
+    import Map from './components/Map.vue';
+    import Welcome from "./components/Welcome.vue";
+    import Home from './views/Home.vue';
 
     export default {
         name: 'App',
         components: {
-            Map
+            Welcome,
+            Map,
+            Home
         }
     };
 </script>
@@ -25,7 +27,11 @@
   }
 
   .App {
-    width: 100vw;
-    height: 100vh;
+    font-family: 'Charter', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
   }
 </style>
