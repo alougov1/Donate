@@ -12,13 +12,17 @@ exports.getUser = (req, res) => {
 };
 
 exports.getAllUsers = (req, res) => {
-    User.find({}, (err, users) => {
-        if (err) {
-            res.send(err);
-        }
-
-        res.json(User);
-    });
+    res.send("Boo");
+    // User.find({}, (err, users) => {
+    //     var userMap = {};
+    //
+    //     users.forEach(function(user) {
+    //       userMap[user._id] = user;
+    //     });
+    //
+    //     res.send(userMap);
+    //
+    // });
 };
 
 exports.createUser = (req, res) => {

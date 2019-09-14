@@ -19,13 +19,14 @@ var router = express.Router()
 //         .post(user.createUser);
 // };
 
-
-router.get('/:id', function (req, res) {
-  res.send(user.getUser(req.params.id));
-})
-
 router.get('/getAllUsers', function (req, res) {
   res.send(user.getAllUsers());
 })
+
+
+router.get('/', function (req, res) {
+  res.send("A");
+})
+
 
 module.exports = router;
