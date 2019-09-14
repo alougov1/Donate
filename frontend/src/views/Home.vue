@@ -4,8 +4,11 @@
             <div class = "title">
                 <h1>Reinventing the way you<br><strong>give stuff away</strong></h1>
             </div>
-            <div class = "subtitle">
+            <div class="subtitle">
                 <p>Let’s make the most out of your unused<br>books, clothing, and furniture.</p>
+            </div>
+            <div class="buttonContainer">
+                <Button msg="Get Started"></Button>
             </div>
         </div>
 
@@ -17,8 +20,10 @@
 
 
 <script>
+    import Button from "../components/Button";
     export default {
         name: 'Home',
+        components: {Button},
     }
 </script>
 
@@ -35,6 +40,12 @@
     }
     h1 > strong {
         font-style: italic;
+    }
+    .subtitle {
+        margin: 3% 0;
+    }
+    .buttonContainer{
+        padding-top: 3%;
     }
     p {
         font-family: 'Avenir', sans-serif;
