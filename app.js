@@ -2,41 +2,34 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
-import routes from './routes/index.js';
+var users = require('./routes/users')
+var home = require('./routes/home')
 
-const app = express();
+// var wiki = require('./wiki.js');
+// // ...
 
-/**
-    * Connect to the database
-    */
+var app = express()
 
+var mongoDB = "mongodb://localhost"
+
+// mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.connect('mongodb://localhost');
 
-/**
-    * Middleware
-    */
+//Get the default connection
+var db = mongoose.connection;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// catch 400
-app.use((err, req, res, next) => {
-    console.log(err.stack);
-    res.status(400).send(`Error: ${res.originUrl} not found`);
-    next();
-});
-
-// catch 500
-app.use((err, req, res, next) => {
-    console.log(err.stack)
-    res.status(500).send(`Error: ${err}`);
-    next();
-});
 
 /**
     * Register the routes
     */
 
-//routes(app);
+// routes(app);
+
+// app.use('/wiki', wiki);
+app.use('/users', users);
+app.use('/', home);
 
 export default app;

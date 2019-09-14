@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
-import user from '../models/userModel.js';
+import UserModel from '../models/userModel.js';
+
+var User = UserModel;
 
 exports.getUser = (req, res) => {
     user.findById(req.params.id, (err, note) => {
