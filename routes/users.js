@@ -2,6 +2,8 @@ import user from '../controllers/controller';
 var express = require('express')
 var router = express.Router()
 
+
+
 //
 // export default (app) => {
 //     app.route('/users')
@@ -18,8 +20,12 @@ var router = express.Router()
 // };
 
 
-router.get('/', function (req, res) {
-  res.send("This is /users");
+router.get('/:id', function (req, res) {
+  res.send(user.getUser(req.params.id));
+})
+
+router.get('/getAllUsers', function (req, res) {
+  res.send(user.getAllUsers());
 })
 
 module.exports = router;

@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
-import UserModel from '../models/userModel.js';
-
-var User = UserModel;
+import User from '../models/userModel.js';
 
 exports.getUser = (req, res) => {
-    user.findById(req.params.id, (err, note) => {
+    User.findById(req.params.id, (err, note) => {
         if (err) {
             res.send(err);
         }
@@ -14,17 +12,17 @@ exports.getUser = (req, res) => {
 };
 
 exports.getAllUsers = (req, res) => {
-    user.find({}, (err, users) => {
+    User.find({}, (err, users) => {
         if (err) {
             res.send(err);
         }
 
-        res.json(users);
+        res.json(User);
     });
 };
 
 exports.createUser = (req, res) => {
-    const newUser = new user(req.body);
+    const newUser = new User(req.body);
 
     newUser.save((err, user) => {
         if (err) {

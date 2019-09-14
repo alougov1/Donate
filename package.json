@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js --exec babel-node --presets env",
     "release": "npm run clean && npm run build && npm run serve",
-    "clean": "rm -rf dist && mkdir dist", "build": "babel . -s -D -d dist --presets env --ignore node_modules",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "babel . -s -D -d dist --presets env --ignore node_modules",
     "serve": "node dist/server.js"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/alougov1/Donate#readme",
   "dependencies": {
+    "@vue/cli": "^3.11.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.1"
   },
