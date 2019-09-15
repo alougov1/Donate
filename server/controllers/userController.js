@@ -30,8 +30,6 @@ exports.getAllUsers = (req, res) => {
 
 
 exports.createUser = (req, res) => {
-    // const newUser = new User(req.body);
-    console.log(req.body);
     const newUser = new User(req.body);
 
     newUser.save((err, user) => {
@@ -57,7 +55,6 @@ exports.createUser = (req, res) => {
 // };
 
 exports.deleteUser = (req, res) => {
-    console.log(req.body);
     User.deleteOne({id: req.body._id}, (err, user) => {
         if (err) {
             res.send(err);
@@ -67,3 +64,12 @@ exports.deleteUser = (req, res) => {
     });
 };
 
+
+exports.deleteAll = (req, res) => {
+    User.deleteMany({}, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(user);
+    })
+}

@@ -8,7 +8,7 @@ import mongoose, {
  */
 const UserScheme = new Schema({
     _id: {
-        type: Number,
+        type: String,
     },
     email: {
         type: String,

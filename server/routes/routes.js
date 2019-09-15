@@ -1,9 +1,20 @@
 module.exports = (app) => {
-    const controller = require('../controllers/controller.js');
+    const userController = require('../controllers/userController.js');
+    const transactionController = require('../controllers/transactionController');
 
-    app.get('/api/users', controller.getAllUsers);
-    app.get('/', controller.getHome);
-    app.get('/api/getUser', controller.getUser);
-    app.post('/api/createUser', controller.createUser);
-    app.post('/api/deleteUser', controller.deleteUser);
+    // home route
+    app.get('/', userController.getHome);
+
+    // users routes
+    app.get('/api/users', userController.getAllUsers);
+    app.get('/api/getUser', userController.getUser);
+    app.post('/api/createUser', userController.createUser);
+    app.post('/api/deleteUser', userController.deleteUser);
+    app.post('/api/deleteAll', userController.deleteAll);
+
+    // transaction routes
+    app.post('/api/createTransaction', transactionController.createTransaction);
+    app.get('/api/transactions', transactionController.getTransactions);
+    app.post('/api/deleteTransaction', transactionController.deleteTransaction);
+
 };
