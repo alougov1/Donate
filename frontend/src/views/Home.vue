@@ -8,7 +8,7 @@
                 <p>Let’s make the most out of your unused<br>books, clothing, and furniture.</p>
             </div>
             <div class="buttonContainer">
-                <Button msg="Get Started"></Button>
+                <Button msg="Get Started" v-on:click="window.location.href = '/login'"></Button>
             </div>
         </div>
 
