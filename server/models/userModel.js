@@ -2,22 +2,20 @@ import mongoose, {
     Schema
 } from 'mongoose';
 
+
 /**
  * Create database scheme for notes
  */
 const UserScheme = new Schema({
-    id: {
-        type: Number,
-        required: "What is the user's ID?"
+    _id: {
+        type: String,
     },
     email: {
         type: String,
-        required: "What is the user's email?"
     },
     // need to hash this
     password: {
         type: String,
-        required: "Password"
     },
     city: {
       type: String
@@ -28,6 +26,6 @@ const UserScheme = new Schema({
     country: {
       type: String
     }
-});
+}, {versionKey: false});
 
 export default mongoose.model('User', UserScheme);

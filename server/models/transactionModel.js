@@ -2,15 +2,15 @@ import mongoose, {
     Schema
 } from 'mongoose';
 import ItemModel from "./itemModel";
-import UserModel from "./userModel";
 
 /**
  * Represents a transaction that a user can send to us.
  */
 const TransactionScheme = new Schema({
-    id: String,
-    user: UserModel,
-    items: [ItemModel],
+    _id: String,
+    userID: String,
+    // list of item IDs
+    items: [String],
     state: ['creating', 'processing','done'],
     pickupSchedule: {
         startWindow: Number,

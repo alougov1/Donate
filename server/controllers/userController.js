@@ -5,28 +5,29 @@ exports.getHome = (req, res) => {
 };
 
 exports.getUser = (req, res) => {
-    User.findById(req.params.id, (err, note) => {
+    User.findById(req.query.id, (err, user) => {
         if (err) {
             res.send(err);
         }
 
-        res.json(user);
+        res.send(user);
     });
 };
 
 exports.getAllUsers = (req, res) => {
-    res.send("Trying to get all users");
-    // User.find({}, (err, users) => {
-    //     var userMap = {};
-    //
-    //     users.forEach(function(user) {
-    //       userMap[user._id] = user;
-    //     });
-    //
-    //     res.send(userMap);
-    //
-    // });
+    User.find({}, (err, users) => {
+        var userMap = {};
+
+        users.forEach(function(user) {
+          userMap[user._id] = user;
+        });
+
+        res.send(userMap);
+
+    });
 };
+
+
 
 exports.createUser = (req, res) => {
     const newUser = new User(req.body);
@@ -36,7 +37,7 @@ exports.createUser = (req, res) => {
             res.send(err);
         }
 
-        res.json(user);
+        res.send(user);
     });
 };
 
@@ -54,15 +55,21 @@ exports.createUser = (req, res) => {
 // };
 
 exports.deleteUser = (req, res) => {
-    note.remove({
-        _id: req.params.userId
-    }, (err) => {
+    User.deleteOne({id: req.body._id}, (err, user) => {
         if (err) {
             res.send(err);
         }
 
-        res.json({
-            message: `user ${req.params.userId} successfully deleted`
-        });
+        res.send(user);
     });
 };
+
+
+exports.deleteAll = (req, res) => {
+    User.deleteMany({}, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(user);
+    })
+}
