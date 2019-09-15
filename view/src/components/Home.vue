@@ -20,7 +20,6 @@
 
 <script>
   import Button from "./Button";
-
   export default {
     name: 'Home',
     components: {
@@ -34,34 +33,18 @@
   .home {
     margin: 15% 15% 15% 15%;
   }
-  h1 {
-    font-family: 'Charter', sans-serif;
-    font-size: 54px;
-    text-align: left;
-    user-select: none;
-  }
-  h1 > strong {
-    font-style: italic;
-  }
   .subtitle {
     margin: 3% 0;
   }
   .buttonContainer{
     padding-top: 3%;
   }
-  p {
-    font-family: 'Avenir', sans-serif;
-    text-align: left;
-    font-size: 20px;
-  }
-
   .imageContainer {
     position: absolute;
     top: 20%;
     left: 35%;
     z-index: -1;
   }
-
   .homeImage {
     width: 900px;
     height: auto;
