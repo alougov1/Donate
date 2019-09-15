@@ -1,6 +1,7 @@
 <template>
-  <div class="App">
-      <Home/>
+  <div id="App">
+      <Home></Home>
+      <p id="test">{{ info }}</p>
   </div>
 </template>
 
@@ -8,6 +9,20 @@
     import Map from './components/Map.vue';
     import Welcome from "./components/Welcome.vue";
     import Home from './views/Home.vue';
+    import Vue from "vue";
+    import axios from "axios"
+
+    new Vue({
+        el: '#test',
+        data: {
+            info: "null"
+        },
+        mounted() {
+            axios
+                .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+                .then(response => (this.info = response))
+        }
+    });
 
     export default {
         name: 'App',
