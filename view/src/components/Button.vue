@@ -1,11 +1,25 @@
 <template>
-    <div class="button">{{msg}}</div>
+    <div class="button">{{ msg }}
+      <p>{{ getTest() }}</p>
+    </div>
 </template>
 
 <script>
+    import apiService from '../apiservice.js';
+    const API_URL = 'http://localhost:3000';
+
     export default {
         props: {
             msg: String,
+        },
+        methods: {
+          getTest() {
+            apiService.test().then((data) => {
+              
+              return data['2'];
+
+            });
+          }
         }
     }
 </script>
