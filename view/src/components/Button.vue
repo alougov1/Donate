@@ -1,13 +1,11 @@
 <template>
-    <div class="button"><a :href=link>{{msg}}</a></div>
+    <div class="button">{{msg}}</div>
 </template>
 
 <script>
     export default {
-        name: 'Button',
         props: {
             msg: String,
-            link: String
         }
     }
 </script>
