@@ -10,7 +10,7 @@ exports.getUser = (req, res) => {
             res.send(err);
         }
 
-        res.send(data);
+        res.send(user);
     });
 };
 

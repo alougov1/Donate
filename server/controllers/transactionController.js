@@ -15,7 +15,7 @@ exports.createTransaction = (req, res) => {
 
 exports.getTransactions = (req, res) => {
     Transaction.find({}, (err, transactions) => {
-        var tMap = {};
+        let tMap = {};
 
         transactions.forEach(function(transaction) {
             tMap[transaction._id] = transaction;

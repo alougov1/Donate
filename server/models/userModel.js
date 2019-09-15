@@ -17,6 +17,9 @@ const UserScheme = new Schema({
     password: {
         type: String,
     },
+    street_addr: {
+        type: String
+    },
     city: {
       type: String
     },

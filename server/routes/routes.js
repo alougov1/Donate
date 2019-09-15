@@ -1,6 +1,7 @@
 module.exports = (app) => {
     const userController = require('../controllers/userController.js');
     const transactionController = require('../controllers/transactionController');
+    const directionController = require('../controllers/directionController');
 
     // home route
     app.get('/', userController.getHome);
@@ -16,5 +17,10 @@ module.exports = (app) => {
     app.post('/api/createTransaction', transactionController.createTransaction);
     app.get('/api/transactions', transactionController.getTransactions);
     app.post('/api/deleteTransaction', transactionController.deleteTransaction);
+
+    // get driving route
+    app.get('/api/addresses', directionController.getAddresses);
+    app.get('/api/directions', directionController.getDirections);
+    app.get('/googleDirections', directionController.getGoogleDirs);
 
 };
