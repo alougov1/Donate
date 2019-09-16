@@ -15,7 +15,7 @@
         methods: {
           getTest() {
             apiService.test().then((data) => {
-              
+
               return data['2'];
 
             });

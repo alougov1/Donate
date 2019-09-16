@@ -34,8 +34,8 @@ exports.getDirections = (req, res) => {
 exports.getGoogleDirs = (req, res) => {
     request.get("https://maps.googleapis.com/maps/api/directions/json?"
                 + "origin=Boston,MA&destination=Medford,MA"
-                + "&waypoints=86 St Stephen St, Boston,MA"
-                + "&key=AIzaSyABAcJGo33FcNk_NJAV1UW3shm6OKP7mtE", (err, response, body) => {
+                + "&waypoints=Some Addr"
+                + "&key=", (err, response, body) => {
         if (err) {
             return next(err);
         }
